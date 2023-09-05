@@ -1,0 +1,148 @@
+ <!-- Media Query Example 1: @media
+      Example:
+        @media (max-width: 600px) {  /* To create a media query, the '@' is used in place of a selector. The code then 
+                                        acts as a breakpoint for the code. This tells the code anything that is equal to 
+                                        or less then 600px wide should be 15px instead*/
+          h1 {
+            font-size: 15px;  /* This part of the code acts as if-else statement*/
+          }
+        }
+-->
+<!-- Media Query Example 2: @media
+      Example 2:
+       ------------------
+        index.html
+       ------------------
+       
+       <div></div>
+       
+       =====================
+
+      -------------------
+       styles.css
+      -------------------
+       div {
+        background-color: blue;
+        height: 200px;
+        width: 200px;
+       }
+       @media (max-width: 600px) { /* This line says the div should apply a height and width of 100px to 'div'.*/
+        div {
+          height: 100px;
+          width: 100px;
+        }
+       }
+        ^-- This code tells the webpage to use the height and width of 100px. This 
+            is useful for smaller displays (screens). '@media' is used to "query" 
+            whether a webpage is smaller or wider then 600px. 
+          
+          - The code above can also be changed to reflect 'min-width', which acts as 
+            a reverse to the 'max-width'. 
+                  
+                  + min-width: Targets larger screens (The max is 2400px(for now))
+
+                  + max-width: Targets smaller screens (Smallest is 0.)
+        
+          - 
+
+
+
+
+-->
+<!-- Media Query Example 3: Min and Max Width 
+     - Combining:
+        -Creating combinations for min and max height, targets certain screen 
+         displays, combining two breakpoints. 
+      Example:
+      ----------------
+      styles.css
+      ----------------
+       @media (min-width: 600px) and (max-width: 900px) {
+        /* Styles for screens between 600px and 900px*/
+
+        ^-- This code says, "Anything that is bigger then 600px(min-width),
+            and less then 900px, will be __ size". The specific style for
+            these screens still needs to be added. This is possibile by 
+            using the 'and' keyword.
+           - 'min' and 'max' could also be switched around like below: 
+                @media (max-width: 600px) and (min-width: 900px) 
+             The code now reads "Anything less then 600px and greater then
+             900px, will follow ____ style."   
+
+             max-width: MAX style this will be applied.
+
+             min-width: MINUMUM width this style will be applied.
+       }
+
+-->
+<!-- Media Query Example 4: Device (@media screen)
+     - @media screen (orientation: landscape){
+        /*Syles for the landscape orientation*/
+     }
+      - The 'screen' keyword is rarely used, as it can be considered a bit redundant 
+        when used (as screens are targeted by default). Instead, the 'print' keyword
+        is used:
+          @media print (orientation: landscape){
+            blank blank;
+          }
+        The 'print' keyword is used more often. These two keywords enable Web Developers
+        to specify what the web page will look like when being printed, or shown on screens
+        by using the 'media' query.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- TODO: Change the background color for each device
+[lightsalmon] Mobile Devices: 319px — 480px
+[powderblue] iPads and Tablets: 481px — 1200px
+[limegreen] Laptops: 1201px — 1600px
+[seagreen] Desktops: 1601px and more
+-->
+
+<!-- Based on the above requirements, add media queries and background
+     colors based on different display sizes. 
+      To do this, specify 'body' as the element that will change.
+      @media {
+        body{
+          color:blank;
+        }
+      }
+        - For the first todo (319px - 480px), the code could also be written:
+            @media (max-width: 480px), simplifying it.
+    -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <title>Media Query</title>
+  <style>
+    body {
+      background-color: aquamarine;
+    }
+    @media (min-width: 319px) and (max-width: 480px) {
+      body{
+        background-color: lightsalmon;
+      }
+    }
+    @media (min-width: 481px) and (max-width: 1200px) {
+      body {
+        background-color: powderblue;
+      }
+    }
+    @media (min-width: 1201px) and (max-width: 1600px) {
+      body {
+        background-color: limegreen;
+      }
+    }
+    @media (min-width: 1601px) {
+      body {
+        background-color: seagreen;
+      }
+}
+  </style>
+</head>
+
+<body>
+</body>
+
+</html>
